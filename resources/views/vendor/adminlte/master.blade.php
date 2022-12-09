@@ -150,6 +150,27 @@
                     })
                     break;
             }
+            @endif
+            @if ($errors->any())
+                @foreach($errors->all() as $error)
+                    Swal.fire({
+                        type: 'error',
+                        title: "Ooops",
+                        text: "{{ $error }}",
+                    })
+                @endforeach
+            @endif
+            @if ($errors->any())
+                    Swal.fire({
+                        icon: 'error',
+                        title: "Ooops",
+                        text: "Terjadi suatu kesalahan",
+                    })
+            @endif
+            $('#table-data').DataTable();
+
+            let baseurl = "<?=url('/')?>";
+            let baseurl = "<?=url()->full()?>";
     </script>
 
 </body>

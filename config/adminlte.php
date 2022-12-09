@@ -292,9 +292,10 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            'text'          => 'buku',
+            'url'           => 'admin/books',
+            'icon'          => 'fas fa-fw fa-book',
+            'can'          => 'isAdmin',
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -428,7 +429,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
