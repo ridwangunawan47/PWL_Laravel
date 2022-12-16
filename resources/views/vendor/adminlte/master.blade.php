@@ -115,7 +115,7 @@
             timer: 3000,
         })
         @if (Session::has('message'))
-            var type = "{{ Seesion::get('alert-type') }}";
+            var type = "{{ Session::get('alert-type') }}";
 
             switch (type) {
                 case 'info':
@@ -170,7 +170,7 @@
             $('#table-data').DataTable();
 
             let baseurl = "<?=url('/')?>";
-            let baseurl = "<?=url()->full()?>";
+            let fullurl = "<?=url()->full()?>";
     </script>
 
 </body>
