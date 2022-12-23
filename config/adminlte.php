@@ -292,9 +292,14 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'text'          => 'Buku',
-            'url'           => 'admin/books',
-            'icon'          => 'fas fa-fw fa-book',
+            'type'         => 'navbar-search',
+            'text'         => 'search',
+            'topnav_right' => true,
+        ],
+        [
+            'text'         => 'buku',
+            'url'          => 'admin/books',
+            'icon'         => 'fas fa-fw fa-book',
             'can'          => 'isAdmin',
         ],
         [
@@ -318,13 +323,6 @@ return [
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],
-        [
-            'text'        => 'score',
-            'url'         => 'admin/score',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 9,
-            'label_color' => 'warning',
         ],
         ['header' => 'account_settings'],
         [
@@ -429,7 +427,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => true,
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',

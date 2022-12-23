@@ -23,7 +23,7 @@
     @yield('adminlte_css_pre')
 
     {{-- Base Stylesheets --}}
-    @if (!config('adminlte.enabled_laravel_mix'))
+    @if(!config('adminlte.enabled_laravel_mix'))
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
 
@@ -32,17 +32,16 @@
 
         <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 
-        @if (config('adminlte.google_fonts.allowed', true))
-            <link rel="stylesheet"
-                href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        @if(config('adminlte.google_fonts.allowed', true))
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         @endif
     @else
         <link rel="stylesheet" href="{{ mix(config('adminlte.laravel_mix_css_path', 'css/app.css')) }}">
     @endif
 
     {{-- Livewire Styles --}}
-    @if (config('adminlte.livewire'))
-        @if (app()->version() >= 7)
+    @if(config('adminlte.livewire'))
+        @if(app()->version() >= 7)
             @livewireStyles
         @else
             <livewire:styles />
@@ -53,7 +52,7 @@
     @yield('adminlte_css')
 
     {{-- Favicon --}}
-    @if (config('adminlte.use_ico_only'))
+    @if(config('adminlte.use_ico_only'))
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
     @elseif(config('adminlte.use_full_favicon'))
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
@@ -69,12 +68,12 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicons/favicon-96x96.png') }}">
-        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('favicons/android-icon-192x192.png') }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('favicons/android-icon-192x192.png') }}">
         <link rel="manifest" crossorigin="use-credentials" href="{{ asset('favicons/manifest.json') }}">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
-    @endif
-
+        @endif
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>
@@ -83,7 +82,7 @@
     @yield('body')
 
     {{-- Base Scripts --}}
-    @if (!config('adminlte.enabled_laravel_mix'))
+    @if(!config('adminlte.enabled_laravel_mix'))
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vendor/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
@@ -97,8 +96,8 @@
     @endif
 
     {{-- Livewire Script --}}
-    @if (config('adminlte.livewire'))
-        @if (app()->version() >= 7)
+    @if(config('adminlte.livewire'))
+        @if(app()->version() >= 7)
             @livewireScripts
         @else
             <livewire:scripts />
@@ -107,6 +106,7 @@
 
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
+
     <script>
         const Toast = Swal.mixin({
             toast: true,
@@ -114,65 +114,53 @@
             showConfirmButton: false,
             timer: 3000,
         })
-        @if (Session::has('message'))
-            var type = "{{ Session::get('alert-type') }}";
-
-            switch (type) {
+        @if(Session::has('massage'))
+            var type = "{{Session::get('alert-type')}}";
+            switch (type){
                 case 'info':
                     Toast.fire({
                         type: 'info',
                         title: "{{ Session::get('message') }}"
                     })
                     break;
-                case 'succes':
+                    case 'success':
                     Toast.fire({
-                        type: 'succes',
+                        type: 'success',
                         title: "{{ Session::get('message') }}"
                     })
                     break;
-                case 'warning':
-                    Toast.fire({
-                        type: 'warning',
-                        title: "{{ Session::get('message') }}"
-                    })
-                    break;
-                case 'error':
+                    case 'error':
                     Toast.fire({
                         type: 'error',
                         title: "{{ Session::get('message') }}"
                     })
                     break;
-                case 'dialog_error':
-                    Swal.fire({
-                        type: 'error',
-                        title: "Ooops"
+                    case 'info':
+                    Toast.fire({
+                        type: 'info',
+                        title: "Ooops",
                         text: "{{ Session::get('message') }}"
+                        timer: 3000
                     })
                     break;
             }
             @endif
+
             @if ($errors->any())
-                @foreach($errors->all() as $error)
+                @foreach($errors->all() as $errors)
                     Swal.fire({
                         type: 'error',
                         title: "Ooops",
                         text: "{{ $error }}",
                     })
-                @endforeach
-            @endif
-            @if ($errors->any())
-                    Swal.fire({
-                        icon: 'error',
-                        title: "Ooops",
-                        text: "Terjadi suatu kesalahan",
-                    })
-            @endif
-            $('#table-data').DataTable();
+                    @endforeach
+                @endif
+                
+                $('#table-data').DataTable();
 
-            let baseurl = "<?=url('/')?>";
-            let fullurl = "<?=url()->full()?>";
+                let baseurl = "<?=url("/")?>";
+                let fullURL = "<?=url()->full()?>";
     </script>
-
 </body>
 
 </html>

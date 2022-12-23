@@ -14,7 +14,7 @@ class CreateUsersSeeder extends Seeder
      */
     public function run()
     {
-        $user = [
+        $user =[
             [
                 'name' => 'isUser',
                 'username' => 'isUser',
@@ -31,8 +31,8 @@ class CreateUsersSeeder extends Seeder
             ]
         ];
 
-            foreach($user as $key => $value){
-                User::create($value);
-            }
+        foreach($user as $key => $value){
+            User::create($value);
+        }
     }
 }
