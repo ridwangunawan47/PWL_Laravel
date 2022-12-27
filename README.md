@@ -3,8 +3,11 @@ Aplikasi CRUD dengan AdminLTE
 ## About Me
 
 Nama : Ridwan Gunawan
+
 Kelas : IF C 2020
+
 NPM : 5520120006
+
 UNIV : Universitas Suryakancana Cianjur
 
 ## About this Project
@@ -25,8 +28,6 @@ Pada projek laravel ini kita menggunakan template dashboard admin yaitu AdminLTE
 -   Run `php artisan serve`
 
 ## Install this Project from Beginning
-
-cara instalasi :
 
 Install Laravel
 
