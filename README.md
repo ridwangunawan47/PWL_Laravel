@@ -27,6 +27,7 @@ Pada projek laravel ini kita menggunakan template dashboard admin yaitu AdminLTE
 ## Install this Project from Beginning
 
 cara instalasi :
+
 Install Laravel
 
 -   Install composer
