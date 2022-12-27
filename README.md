@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Aplikasi CRUD dengan AdminLTE
 
 ## About Me
@@ -8,26 +7,24 @@ Kelas : IF C 2020
 NPM : 5520120006
 UNIV : Universitas Suryakancana Cianjur
 
-## About the Project
+## About this Project
 
 Pada projek laravel ini kita menggunakan template dashboard admin yaitu AdminLTE, disini terdapat multilevel user dan kita bisa melakukan crud data buku jika login sebagai admin, dan kita tentu bisa logout
 
-## Usage
+## How to Install this Project
 
 -   Run `git clean  -d  -fx .`
 -   Run `composer install`
 -   Run `copy .env.example .env`
 -   Run `php artisan key:generate`
--   # Buat database dan sesuaikan dengan yang ada di `.env` file
+-   Buat database dan sesuaikan dengan yang ada di `.env` file
 -   Run `php artisan migrate`
 -   Run `php artisan db:seed`
 -   Run `php artisan storage:link`
--   # Buat folder `cover_buku` di folder `public`
+-   Buat folder `cover_buku` di folder `public`
 -   Run `php artisan serve`
 
-<<<<<<< HEAD
-
-## Instal from Beginning
+## Install this Project from Beginning
 
 cara instalasi :
 Install Laravel
